@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}{{ employee.first_name }} {{ employee.last_name }} - Profile{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="d-flex flex-column flex-md-row align-items-center mb-4">
+                    {% if employee.photo %}
+                        <img src="{{ employee.photo.url }}" alt="{{ employee }}" class="rounded-circle object-cover mb-3 mb-md-0 me-md-4" style="width: 120px; height: 120px;">
+                    {% else %}
+                        <div class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-center text-primary fw-bold mb-3 mb-md-0 me-md-4" style="width: 120px; height: 120px; font-size: 2.5rem;">
+                            {{ employee.first_name|first }}{{ employee.last_name|first }}
+                        </div>
+                    {% endif %}
+                    <div class="text-center text-md-start">
+                        <h1 class="display-6 fw-bold mb-2">{{ employee.first_name }} {{ employee.last_name }}</h1>
+                        <p class="lead text-primary mb-1">{{ employee.job_title }}</p>
+                        {% if employee.department %}
+                            <p class="text-muted mb-0">
+                                <i class="bi bi-building me-1"></i>{{ employee.department }}
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-envelope-fill text-primary me-3"></i>
+                            <div>
+                                <small class="text-muted d-block">Email</small>
+                                <a href="mailto:{{ employee.email }}" class="text-decoration-none">{{ employee.email }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% if employee.phone_number %}
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-telephone-fill text-primary me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Phone</small>
+                                    <a href="tel:{{ employee.phone_number }}" class="text-decoration-none">{{ employee.phone_number }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+
+                {% if employee.bio %}
+                    <div class="border-top pt-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-person-lines-fill me-2"></i>About
+                        </h5>
+                        <p class="text-muted">{{ employee.bio|linebreaks }}</p>
+                    </div>
+                {% endif %}
+
+                <div class="d-flex justify-content-between align-items-center border-top pt-4 mt-4">
+                    <div>
+                        <span class="badge {% if employee.is_active %}bg-success{% else %}bg-secondary{% endif %}">
+                            {% if employee.is_active %}Active{% else %}Inactive{% endif %}
+                        </span>
+                    </div>
+                    <div>
+                        <a href="{% url 'employees:list' %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-1"></i>Back to Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

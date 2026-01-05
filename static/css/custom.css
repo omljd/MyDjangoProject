@@ -1,0 +1,106 @@
+/* Custom styles for Employee Directory */
+
+/* Hover effects for cards */
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Navbar brand hover effect */
+.navbar-brand:hover {
+    color: #fff !important;
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Button hover effects */
+.btn {
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Form enhancements */
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Badge animations */
+.badge {
+    transition: transform 0.2s ease-in-out;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+}
+
+/* Employee avatar fallback */
+.rounded-circle.bg-primary.bg-opacity-10 {
+    background: linear-gradient(135deg, #0d6efd15 0%, #0d6efd25 100%) !important;
+}
+
+/* Footer styling */
+footer {
+    margin-top: auto;
+}
+
+/* Footer link hover effects */
+footer a.text-muted:hover {
+    color: #fff !important;
+    transition: color 0.2s ease-in-out;
+}
+
+footer a.text-light:hover {
+    color: #0d6efd !important;
+    transition: color 0.2s ease-in-out;
+}
+
+.hover-opacity:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Alert animations */
+.alert {
+    animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Table enhancements */
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Loading spinner for forms */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-5 {
+        font-size: 2rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+}
